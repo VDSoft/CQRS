@@ -3,6 +3,18 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <Configurations>Debug;Release;CQRS;DependencyInjection</Configurations>
+    <Authors>Christoph van der Fecht</Authors>
+    <Company>VDsoft</Company>
+    <Description>This library supports with the integration of the Command and Query Responsibility Segregation Pattern (CQRS).
+
+Supported Frameworks
+
+* .NET.Core
+* Net 5 (or later)</Description>
+    <PackageProjectUrl>https://github.com/VDSoft/CQRS</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/VDSoft/CQRS</RepositoryUrl>
+    <RepositoryType>Git</RepositoryType>
+    <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
 </Project>
