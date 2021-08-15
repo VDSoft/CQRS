@@ -19,6 +19,39 @@ Supported DIs
     <RepositoryType>Git</RepositoryType>
     <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
+<!--net 5-->
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0|AnyCPU'">
+    <DocumentationFile>$(OutDir)\VDsoft.Cqrs.DependencyInjectionExtension.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|net5.0|AnyCPU'">
+    <DocumentationFile>$(OutDir)\VDsoft.Cqrs.DependencyInjectionExtension.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='CQRS|net5.0|AnyCPU'">
+    <DocumentationFile>$(OutDir)\VDsoft.Cqrs.DependencyInjectionExtension.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='DependencyInjection|net5.0|AnyCPU'">
+    <DocumentationFile>$(OutDir)\VDsoft.Cqrs.DependencyInjectionExtension.xml</DocumentationFile>
+  </PropertyGroup>
+  
+  <!--net 3.1-->
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|netcoreapp3.1|AnyCPU'">
+    <DocumentationFile>$(OutDir)\VDsoft.Cqrs.DependencyInjectionExtension.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Release|netcoreapp3.1|AnyCPU'">
+    <DocumentationFile>$(OutDir)\VDsoft.Cqrs.DependencyInjectionExtension.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='CQRS|netcoreapp3.1|AnyCPU'">
+    <DocumentationFile>$(OutDir)\VDsoft.Cqrs.DependencyInjectionExtension.xml</DocumentationFile>
+  </PropertyGroup>
+
+  <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='DependencyInjection|netcoreapp3.1|AnyCPU'">
+    <DocumentationFile>$(OutDir)\VDsoft.Cqrs.DependencyInjectionExtension.xml</DocumentationFile>
+  </PropertyGroup>
 
   <ItemGroup>
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" Version="5.0.2" />
