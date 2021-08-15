@@ -3,6 +3,21 @@
   <PropertyGroup>
     <TargetFramework>net5.0</TargetFramework>
     <Configurations>Debug;Release;CQRS;DependencyInjection</Configurations>
+    <Authors>Christoph van der Fecht</Authors>
+    <Company>VDsoft</Company>
+    <Description>Package to help integrate the VDsoft.CQRS library into your Dependency Injector (DI)
+
+Dependencies
+* VDsoft.Cqrs
+* Microsoft.Extensions.DependencyInjection
+
+Supported DIs
+* Microsoft.Extensions.DependencyInjection</Description>
+    <PackageProjectUrl>https://github.com/VDSoft/CQRS</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/VDSoft/CQRS</RepositoryUrl>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <RepositoryType>Git</RepositoryType>
+    <NeutralLanguage>en</NeutralLanguage>
   </PropertyGroup>
 
   <ItemGroup>
