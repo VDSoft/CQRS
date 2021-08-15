@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>net5.0</TargetFramework>
+    <TargetFrameworks>net5.0;netcoreapp3.1</TargetFrameworks>
     <Configurations>Debug;Release;CQRS;DependencyInjection</Configurations>
     <Authors>Christoph van der Fecht</Authors>
     <Company>VDsoft</Company>
