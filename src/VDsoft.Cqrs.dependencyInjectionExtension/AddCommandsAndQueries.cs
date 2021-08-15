@@ -7,6 +7,9 @@ using VDsoft.Cqrs.Query;
 
 namespace Microsoft.Extensions.DependencyInjection
 {
+    /// <summary>
+    /// Extension for the <see cref="Microsoft.Extensions.DependencyInjection"/> to easily integrate CQRS into the DI.
+    /// </summary>
     public static class AddCommandsAndQueries
     {
         /// <summary>
