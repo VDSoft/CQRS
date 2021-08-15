@@ -1,26 +1,32 @@
-﻿name: Publish nuget package
+﻿name: Publish CQRS nuget package
 
 on:
-	push:
-		branches:
-			- main
-		tags:
-			- "v[0-9]+.[0-9]+.[0-9]+"
+  push:
+    branches: [ main ]
+    tags:
+      - v*
 
 jobs:
-	build:
-		runs-on: ubuntu-latest
-		timeout-minutes: 5
+    build:
+        runs-on: ubuntu-latest
+        timeout-minutes: 5
+        env:
+            APIKEY: ${{secrets.NUGETAPIKEY}}
 
-		steps:
-			- name: Checkout
-			  uses: actions/checkout@v2
-			  with:
-			  fetch-depth: 0
-			- name: Verify commit exists
-			  run: git branch --remote --contains | grep origin/main
-			- name: Extract relse notes
-			  run: |
-					git log --pretty=format:'%d %s' ${GITHUB_REF} | perl -pe 's| \(.*tag: v(\d+.\d+.\d+(-preview\d{3})?)(, .*?)*\)|\n## \1\n|g' > RELEASE-NOTES
-			- name: Set Version from tag
-			  run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v2
+              with:
+                fetch-depth: 0
+            - name: Verify commit exists on main branch
+              run: git branch --remote --contains | grep origin/main
+            - name: Set VERSION variable from tag
+              run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
+            - name: Install dependencies
+              run: dotnet restore
+            - name: Build CQRS
+              run: dotnet build --configuration CQRS --no-restore
+            - name: Pack CQRS library
+              run: dotnet pack --configuration CQRS --no-restore /p:Version=${VERSION} --no-build --output .
+            #- name: Push nuget package
+            #  run: dotnet nuget push VDsoft.CQRS.${VERSION}.nupkg --api-key ${APIKEY}
