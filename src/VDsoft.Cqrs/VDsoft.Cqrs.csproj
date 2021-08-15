@@ -15,6 +15,7 @@ Supported Frameworks
     <RepositoryUrl>https://github.com/VDSoft/CQRS</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
     <NeutralLanguage>en</NeutralLanguage>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
   </PropertyGroup>
 
 </Project>
