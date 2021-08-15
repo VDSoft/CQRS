@@ -21,6 +21,14 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		README.md = README.md
 	EndProjectSection
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".github", ".github", "{33761823-DC26-458B-82F0-13C1A51EEDF7}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "workflows", "workflows", "{4DBA9864-1EFA-4C7D-8E6D-07AA012E8198}"
+	ProjectSection(SolutionItems) = preProject
+		.github\workflows\gated.yml = .github\workflows\gated.yml
+		.github\workflows\publishNuget.yml = .github\workflows\publishNuget.yml
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		CQRS|Any CPU = CQRS|Any CPU
@@ -51,6 +59,7 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{DB1D20B0-3445-4403-BE7A-0284C6499367} = {C036E8B4-3BF4-4F40-992C-E722C59A8A3F}
 		{F6E07E4F-ACC2-4313-B0F7-B8547F1E88F4} = {C036E8B4-3BF4-4F40-992C-E722C59A8A3F}
+		{4DBA9864-1EFA-4C7D-8E6D-07AA012E8198} = {33761823-DC26-458B-82F0-13C1A51EEDF7}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {5FD7A8B4-CC3E-433B-BD36-A152D401696B}
