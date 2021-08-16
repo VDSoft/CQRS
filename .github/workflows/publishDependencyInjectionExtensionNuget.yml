@@ -12,6 +12,7 @@ jobs:
         timeout-minutes: 5
         env:
             APIKEY: ${{secrets.NUGETAPIKEY}}
+            Configuration: DependencyInjection
 
         steps:
             - name: Checkout
@@ -24,9 +25,9 @@ jobs:
               run: echo "VERSION=${GITHUB_REF/refs\/tags\/v/}" >> $GITHUB_ENV
             - name: Install dependencies
               run: dotnet restore
-            - name: Build CQRS
-              run: dotnet build --configuration CQRS --no-restore
-            - name: Pack CQRS library
-              run: dotnet pack --configuration CQRS --no-restore /p:Version=${VERSION} --no-build --output .
+            - name: Build Dependency injection package
+              run: dotnet build --configuration ${{Configuration}} --no-restore
+            - name: Pack Dependency injection library
+              run: dotnet pack --configuration ${{Configuration}} --no-restore /p:Version=${VERSION} --no-build --output .
             #- name: Push nuget package
-            #  run: dotnet nuget push VDsoft.CQRS.${VERSION}.nupkg --api-key ${APIKEY}
+            #  run: dotnet nuget push VDsoft.${{Configuration}}.${VERSION}.nupkg --source https://api.nuget.org/v3/index.json --api-key ${APIKEY}
