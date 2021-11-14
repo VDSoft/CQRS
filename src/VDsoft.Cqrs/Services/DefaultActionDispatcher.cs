@@ -35,12 +35,8 @@ namespace VDsoft.Cqrs.Services
             Type[] typeArgs = { commandArguments.GetType() };
             var commandType = type.MakeGenericType(typeArgs);
 
-            dynamic command = serviceProvider.GetService(commandType);
-
-            if (command == null)
-            {
+            dynamic command = serviceProvider.GetService(commandType) ?? 
                 throw new Exception($"No command which handles arguments of type {commandArguments.GetType()} could be found.\nMake sure you have a command which accepts arguments of type {commandArguments.GetType()}");
-            }
 
             return command.ExecuteAsync((dynamic)commandArguments);
         }
@@ -59,12 +55,8 @@ namespace VDsoft.Cqrs.Services
             Type[] typeArgs = { query.GetType(), typeof(T) };
             var queryCommandType = type.MakeGenericType(typeArgs);
 
-            dynamic queryCommand = serviceProvider.GetService(queryCommandType);
-
-            if (queryCommand == null)
-            {
-                throw new Exception($"No handler for the query {query.GetType()} could be found.\nMake sure you have a handler which accepts query of the type {query.GetType()}.");
-            }
+            dynamic queryCommand = serviceProvider.GetService(queryCommandType) ??
+                throw new Exception($"No handler for the query {query.GetType()} could be found.\nMake sure you have a handler which accepts query of the type {query.GetType()}."); ;
 
             return queryCommand.ExecuteAsync((dynamic)query);
         }
