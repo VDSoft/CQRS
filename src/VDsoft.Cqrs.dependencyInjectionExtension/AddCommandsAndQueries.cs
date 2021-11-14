@@ -8,7 +8,7 @@ using VDsoft.Cqrs.Query;
 namespace Microsoft.Extensions.DependencyInjection
 {
     /// <summary>
-    /// Extension for the <see cref="Microsoft.Extensions.DependencyInjection"/> to easily integrate CQRS into the DI.
+    /// Extension for the <see cref="DependencyInjection"/> to easily integrate CQRS into the DI.
     /// </summary>
     public static class AddCommandsAndQueries
     {
@@ -64,16 +64,23 @@ namespace Microsoft.Extensions.DependencyInjection
         private static Func<IServiceProvider, object> BuildPipeline(List<Type> pipeline, Type interfaceType)
         {
             var ctor = pipeline
-                .Select(x =>
-                {
-                    var type = x.IsGenericType ? x.MakeGenericType(interfaceType.GenericTypeArguments) : x;
-                    return type.GetConstructors().Single();
-                })
+                .Select(x => GetFirstConstructor(interfaceType, x))
                 .ToList();
 
-            Func<IServiceProvider, object> func = provider =>
+            return BuildFactoryFunction(ctor);
+        }
+
+        private static ConstructorInfo GetFirstConstructor(Type interfaceType, Type x)
+        {
+            var type = x.IsGenericType ? x.MakeGenericType(interfaceType.GenericTypeArguments) : x;
+            return type.GetConstructors().Single();
+        }
+
+        private static Func<IServiceProvider, object> BuildFactoryFunction(List<ConstructorInfo> ctor)
+        {
+            return provider =>
             {
-                object current = null;
+                object current = null!;
 
                 foreach (var constructor in ctor)
                 {
@@ -85,8 +92,6 @@ namespace Microsoft.Extensions.DependencyInjection
 
                 return current;
             };
-
-            return func;
         }
 
         private static object[] GetParameters(List<ParameterInfo> parameterInfos, object current, IServiceProvider serviceProvider)
@@ -117,7 +122,7 @@ namespace Microsoft.Extensions.DependencyInjection
 
         private static Type ToDecorator(object attribute)
         {
-            return null;
+            return null!;
         }
     }
 }
