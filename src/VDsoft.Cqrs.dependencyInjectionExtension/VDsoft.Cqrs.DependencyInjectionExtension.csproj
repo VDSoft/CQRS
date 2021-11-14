@@ -4,6 +4,12 @@
 	  <TargetFrameworks>net6.0;net5.0;netcoreapp3.1</TargetFrameworks>
     <Description>Package to help integrate the VDsoft.CQRS library into your Dependency Injector (DI)
 
+Supported Frameworks
+
+* .NET.Core 3.1
+* Net 5
+* Net 6 (or later)
+
 Dependencies
 * VDsoft.Cqrs
 * Microsoft.Extensions.DependencyInjection

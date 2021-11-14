@@ -7,7 +7,8 @@
 Supported Frameworks
 
 * .NET.Core 3.1
-* Net 5 (or later)</Description>
+* Net 5
+* Net 6 (or later)</Description>
     <PackageProjectUrl>https://github.com/VDSoft/CQRS</PackageProjectUrl>
     <RepositoryUrl>https://github.com/VDSoft/CQRS</RepositoryUrl>
     <RepositoryType>Git</RepositoryType>
