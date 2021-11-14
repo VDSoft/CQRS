@@ -18,6 +18,7 @@ Supported DIs
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <RepositoryType>Git</RepositoryType>
     <NeutralLanguage>en</NeutralLanguage>
+    <PackageLicenseFile>LICENSE.md</PackageLicenseFile>
   </PropertyGroup>
 <!--net 5-->
   <PropertyGroup Condition="'$(Configuration)|$(TargetFramework)|$(Platform)'=='Debug|net5.0|AnyCPU'">
@@ -59,6 +60,13 @@ Supported DIs
 
   <ItemGroup>
     <ProjectReference Include="..\VDsoft.Cqrs\VDsoft.Cqrs.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="..\..\LICENSE.md">
+      <Pack>True</Pack>
+      <PackagePath></PackagePath>
+    </None>
   </ItemGroup>
 
 </Project>
